@@ -4,14 +4,14 @@ package com.aboge.filter;/*
  * */
 
 
-import sun.misc.Request;
+
 
 //字符编码过滤器
 import javax.servlet.*;
 import java.io.IOException;
 
 public class CharacterEncodingFilter implements Filter {
-    public void init(FilterConfig filterConfig) throws ServletException {
+    public void init(FilterConfig filterConfig){
 
     }
 

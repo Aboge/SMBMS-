@@ -12,9 +12,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.Properties;
 
 public class LoginServlet extends HttpServlet{
 
@@ -24,10 +22,6 @@ public class LoginServlet extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-//        String filePath = this.getServletContext().getRealPath("/WEB-INF/classes/db.properties");
-//        FileInputStream fis = new FileInputStream(filePath);
-//        Properties prop = new Properties();
-//        prop.load(fis);
         System.out.println("LoginServelet--start...");
         //获取前端输入的用户账号及密码
         String userCode = req.getParameter("userCode");
@@ -36,7 +30,6 @@ public class LoginServlet extends HttpServlet{
 
         //和数据库中用户对应的密码进行比对，需要调用业务层UserService
         UserService userService = new UserServiceImpl();
-//        User user = userService.login("test","123"); //测试参数
         User user = userService.login(userCode,userPassword); //根据用户的账户信息已经把用户在数据库中的信息查询出来了
 
 

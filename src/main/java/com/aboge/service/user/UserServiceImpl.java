@@ -29,7 +29,7 @@ public class UserServiceImpl implements UserService {
 
         try {
             //连接数据库,调用dao层中的BaseDao实体类的getConnection方法，来操作数据库
-//            BaseDao baseDao = BaseDao.getBaseDao();
+//            BaseDao baseDao = new BaseDao();
             connection = BaseDao.getConnection();
 
 //            System.out.println(connection);

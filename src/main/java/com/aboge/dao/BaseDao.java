@@ -47,14 +47,24 @@ public class BaseDao {
 
             //getClassLoader():加载类加载器 之后返回一个类加载器
 
-            InputStream in = new FileInputStream("WEB-INF/classes/db.properties");
-            Properties p = new Properties();
-            p.load(in);
-            url = p.getProperty("url");
-            driver = p.getProperty("driver");
-            username = p.getProperty("username");
-            password = p.getProperty("password");
+            //InputStream in = ClassLoader.getSystemResourceAsStream("db");
+            //InputStream in = BaseDao.class.getClassLoader().getResourceAsStream("db.properties");
+
+//            Properties p = new Properties();
+//            p.load(in);
+//            url = p.getProperty("url");
+//            driver = p.getProperty("driver");
+//            username = p.getProperty("username");
+//            password = p.getProperty("password");
+
+            ResourceBundle in = ResourceBundle.getBundle("db");
+            url = in.getString("url");
+            driver = in.getString("driver");
+            username = in.getString("username");
+            password = in.getString("password");
+
             System.out.println("url的值是："+url);
+            System.out.println("driver的值为："+driver);
 
 
         }catch (Exception e){
